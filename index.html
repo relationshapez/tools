@@ -153,6 +153,20 @@
       overflow: clip;
     }
 
+    details {
+      display: block;
+    }
+
+    summary.section-heading {
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    summary.section-heading::-webkit-details-marker {
+      display: none;
+    }
+
     .section-heading {
       display: flex;
       align-items: center;
@@ -160,6 +174,23 @@
       gap: 12px;
       padding: 20px 20px 14px;
       border-bottom: 1px solid rgba(214, 191, 145, 0.16);
+    }
+
+    details:not([open]) .section-heading {
+      border-bottom: 0;
+    }
+
+    summary.section-heading h2::before {
+      content: "▾";
+      display: inline-block;
+      width: 1.1em;
+      color: var(--gold-soft);
+      font-size: 0.82em;
+      transition: transform 160ms ease;
+    }
+
+    details:not([open]) summary.section-heading h2::before {
+      content: "▸";
     }
 
     h2 {
@@ -330,7 +361,6 @@
   <main class="page">
     <header>
       <h1>Relationshapez</h1>
-      <p class="tagline">Interactive companion tools for exploring graphs, games, fractals, tilings, transformations, and numerical patterns.</p>
       <label class="search-row" aria-label="Search tools">
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
           <path d="m21 21-4.2-4.2m2.2-5.3a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -341,11 +371,12 @@
 
     <div class="sections">
       <section class="graphs" data-section>
-        <div class="section-heading">
-          <h2>Graphs</h2>
-          <span class="count" data-count>8</span>
-        </div>
-        <div class="link-grid">
+        <details open>
+          <summary class="section-heading">
+            <h2>Graphs</h2>
+            <span class="count" data-count>8</span>
+          </summary>
+          <div class="link-grid">
           <a class="tool-card" href="https://relationshapez.github.io/graph_drawing/" data-name="Graph Drawing"><span class="tool-title">Graph Drawing</span><span class="tool-url">relationshapez.github.io/graph_drawing</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/graph_maker/" data-name="Graph Maker"><span class="tool-title">Graph Maker</span><span class="tool-url">relationshapez.github.io/graph_maker</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/graph_potato/" data-name="Graph Potato"><span class="tool-title">Graph Potato</span><span class="tool-url">relationshapez.github.io/graph_potato</span></a>
@@ -354,16 +385,18 @@
           <a class="tool-card" href="https://relationshapez.github.io/knights_tour/" data-name="Knights Tour"><span class="tool-title">Knights Tour</span><span class="tool-url">relationshapez.github.io/knights_tour</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/nim_game/" data-name="Nim Game"><span class="tool-title">Nim Game</span><span class="tool-url">relationshapez.github.io/nim_game</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/xor_tester/" data-name="XOR Tester"><span class="tool-title">XOR Tester</span><span class="tool-url">relationshapez.github.io/xor_tester</span></a>
-        </div>
-        <p class="empty-message">No graph tools match that search.</p>
+          </div>
+          <p class="empty-message">No graph tools match that search.</p>
+        </details>
       </section>
 
       <section class="shapes" data-section>
-        <div class="section-heading">
-          <h2>Shapes</h2>
-          <span class="count" data-count>21</span>
-        </div>
-        <div class="link-grid">
+        <details open>
+          <summary class="section-heading">
+            <h2>Shapes</h2>
+            <span class="count" data-count>21</span>
+          </summary>
+          <div class="link-grid">
           <a class="tool-card" href="https://relationshapez.github.io/aperiodic_tiles/" data-name="Aperiodic Tiles"><span class="tool-title">Aperiodic Tiles</span><span class="tool-url">relationshapez.github.io/aperiodic_tiles</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/cantor_fractal/" data-name="Cantor Fractal"><span class="tool-title">Cantor Fractal</span><span class="tool-url">relationshapez.github.io/cantor_fractal</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/chaos_game/" data-name="Chaos Game"><span class="tool-title">Chaos Game</span><span class="tool-url">relationshapez.github.io/chaos_game</span></a>
@@ -385,8 +418,9 @@
           <a class="tool-card" href="https://relationshapez.github.io/pascal_fractal/" data-name="Pascal Triangle"><span class="tool-title">Pascal Triangle</span><span class="tool-url">relationshapez.github.io/pascal_fractal</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/rigid_motion/" data-name="Rigid Motion"><span class="tool-title">Rigid Motion</span><span class="tool-url">relationshapez.github.io/rigid_motion</span></a>
           <a class="tool-card" href="https://relationshapez.github.io/sierpinski_fractal/" data-name="Sierpinski Triangle"><span class="tool-title">Sierpinski Triangle</span><span class="tool-url">relationshapez.github.io/sierpinski_fractal</span></a>
-        </div>
-        <p class="empty-message">No shape tools match that search.</p>
+          </div>
+          <p class="empty-message">No shape tools match that search.</p>
+        </details>
       </section>
     </div>
   </main>
